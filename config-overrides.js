@@ -1,5 +1,3 @@
-const { override, fixBabelImports } = require('customize-cra');
-
 const externals = (config) => {
     config.optimization.runtimeChunk = false;
     config.optimization.splitChunks = {
@@ -15,11 +13,4 @@ const externals = (config) => {
     return config;
 }
 
-module.exports = override(
-    externals,
-    fixBabelImports('import', {
-        libraryName: 'element-ui',
-        libraryDirectory: 'es',
-        style: 'element-ui',
-    })
-);
+module.exports = externals
